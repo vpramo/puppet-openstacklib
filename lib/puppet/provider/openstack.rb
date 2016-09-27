@@ -14,10 +14,10 @@ class Puppet::Provider::Openstack < Puppet::Provider
   commands :openstack_command => 'openstack'
 
   @@no_retry_actions = %w(create remove delete)
-  @@command_timeout  = 40
+  @@command_timeout  = 5
   # Fails on the 5th retry for a max of 212s (~3.5min) before total
   # failure.
-  @@request_timeout  = 170
+  @@request_timeout  = 10
   @@retry_sleep      = 3
   class << self
     [:no_retry_actions, :request_timeout, :retry_sleep].each do |m|
